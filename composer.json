@@ -1,0 +1,98 @@
+{
+  "name": "kaiseki/wp-block-editor",
+  "type": "library",
+  "description": "",
+  "keywords": [
+    "wordpress",
+    "module"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kaisekidev/kaiseki-wp-block-editor",
+  "authors": [
+    {
+      "name": "Kaiseki",
+      "email": "hello@kaiseki.dev",
+      "homepage": "https://www.kaiseki.dev",
+      "role": "Organization"
+    },
+    {
+      "name": "David Mondok",
+      "email": "david@woda.at",
+      "homepage": "https://github.com/davidmondok",
+      "role": "Developer"
+    },
+    {
+      "name": "Wolfgang Schaefer",
+      "email": "wolfgang@woda.at",
+      "homepage": "https://github.com/wolfgangschaefer",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/kaisekidev/kaiseki-wp-meta/issues",
+    "source": "https://github.com/kaisekidev/kaiseki-wp-meta"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kaiseki\\WordPress\\BlockEditor\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kaiseki\\Test\\Functional\\WordPress\\BlockEditor\\": "tests/functional",
+      "Kaiseki\\Test\\Unit\\WordPress\\BlockEditor\\": "tests/unit"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "ext-json": "^7.4",
+    "kaiseki/wp-config": "^1.0",
+    "kaiseki/wp-hook": "^1.0",
+    "psr/container": "^1.0",
+    "thecodingmachine/safe": "^1.3"
+  },
+  "require-dev": {
+    "brain/monkey": "^2.6",
+    "eventjet/coding-standard": "^3.2",
+    "infection/infection": "^0.26.4",
+    "maglnet/composer-require-checker": "^3.5",
+    "php-stubs/wordpress-stubs": "^5.8",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan": "^1.2",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpstan/phpstan-strict-rules": "^1.1",
+    "phpunit/phpunit": "^9.5",
+    "roots/wordpress": "@stable",
+    "szepeviktor/phpstan-wordpress": "^1.0",
+    "thecodingmachine/phpstan-safe-rule": "^1.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "wordpress-install-dir": "vendor/wordpress/wordpress"
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "check": [
+      "@check-deps",
+      "@cs-check",
+      "@phpstan",
+      "@phpunit",
+      "@infection"
+    ],
+    "check-deps": "vendor/bin/composer-require-checker check --config-file=require-checker.config.json",
+    "cs-check": "vendor/bin/phpcs",
+    "cs-fix": "vendor/bin/phpcbf",
+    "infection": "vendor/bin/infection --threads=4",
+    "infection-xdebug": "@composer run --timeout=0 infection -- --initial-tests-php-options='-d zend_extension=xdebug.so'",
+    "phpstan": "vendor/bin/phpstan analyse",
+    "phpunit": "vendor/bin/phpunit"
+  }
+}
