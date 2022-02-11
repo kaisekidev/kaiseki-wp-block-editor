@@ -6,7 +6,8 @@
     "add_action", "add_filter", "add_theme_support", "remove_theme_support",
     "wp_add_inline_script", "wp_dequeue_style",
     "wp_list_pluck",
-    "WP_Post"
+    "WP_Post", "WP_Block_Pattern_Categories_Registry", "WP_Block_Patterns_Registry",
+    "register_block_pattern_category", "register_block_pattern"
   ],
   "php-core-extensions": [
     "Core",

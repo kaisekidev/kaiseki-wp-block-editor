@@ -213,8 +213,8 @@ final class ConfigProviderTest extends TestCase
                         // EmployeePostType::NAME,
                     ],
                     /**
-                     * Disable block editor for certain posts by running them through checkers.
-                     * Checkers must implement PostCheckerInterface.
+                     * Disable block editor for certain posts by running them through callables.
+                     * Callable post Callables must have the following signature: callable(WP_Post): bool
                      *
                      * @link https://developer.wordpress.org/reference/hooks/use_block_editor_for_post/
                      */
@@ -223,30 +223,35 @@ final class ConfigProviderTest extends TestCase
                     ],
                     /**
                      * Replace the title field placeholder text.
-                     * Configure via array of texts keyed by post types.
+                     * Configure via array indexed by post type name and value the new placeholder text.
                      *
                      * @link https://developer.wordpress.org/reference/hooks/enter_title_here/
                      */
                     'title_input_placeholder' => [
                         // EmployeePostType::NAME => __('Enter name here', 'kaiseki'),
                     ],
-                    // Class names used by Block Content Filters
-                    'block_classes' => [
-                        /**
-                         * Used by ListBlockClassStringFilter.
-                         * Defaults to 'block-heading' if not set.
-                         */
-                        'heading' => '',
-                        /**
-                         * Used by HeadingBlockClassStringFilter.
-                         * Defaults to 'block-list' if not set.
-                         */
-                        'list' => '',
-                        /**
-                         * Used by ParagraphBlockClassStringFilter.
-                         * Defaults to 'block-paragraph' if not set.
-                         */
-                        'paragraph' => '',
+                    /**
+                     * Register block pattern from php files in a specific directory.
+                     * Configure via a list of arrays with a namespace and path
+                     * The block pattern name will be in the format <namespace>/<filename>
+                     * The block pattern properties will be the array returned from php files found inside path
+                     *
+                     * @link https://developer.wordpress.org/reference/classes/wp_block_patterns_registry/register/
+                     */
+                    'block_pattern_path' => [
+                        //[
+                        //    'namespace' => 'twentytwentytwo',
+                        //    'path' => __DIR__ . '/../block-pattern/',
+                        //],
+                    ],
+                    /**
+                     * Register block pattern categories.
+                     * Configure via array indexed by category name and value the category properties.
+                     *
+                     * @link https://developer.wordpress.org/reference/classes/wp_block_pattern_categories_registry/register/
+                     */
+                    'block_pattern_categories' => [
+                        //'featured' => ['label' => __('Featured', 'twentytwentytwo')],
                     ],
                 ],
                 'dependencies' => [
