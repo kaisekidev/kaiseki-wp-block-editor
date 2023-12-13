@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kaiseki\WordPress\BlockEditor\BlockCategories;
 
 use Kaiseki\WordPress\Hook\HookCallbackProviderInterface;
+
 use function array_search;
 use function array_splice;
 use function array_unshift;
@@ -22,8 +23,7 @@ final class BlockCategoriesRegistry implements HookCallbackProviderInterface
     public function __construct(
         private readonly array $categories,
         private readonly bool $addAtTop = false
-    )
-    {
+    ) {
     }
 
     public function registerHookCallbacks(): void

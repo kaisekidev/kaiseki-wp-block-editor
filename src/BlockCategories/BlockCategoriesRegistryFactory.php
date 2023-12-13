@@ -12,8 +12,13 @@ final class BlockCategoriesRegistryFactory
     public function __invoke(ContainerInterface $container): BlockCategoriesRegistry
     {
         $config = Config::get($container);
-        /** @var list<class-string<BlockCategoryInterface>> $categories */
-        $categories = $config->array('block_editor/categories');
-        return new BlockCategoriesRegistry($categories, $config->bool('block_editor/add_at_top', false));
+        /** @var list<class-string<BlockCategoryInterface>> $categoryClassStrings */
+        $categoryClassStrings = $config->array('block_editor/category_classes', []);
+        /** @var list<BlockCategoryInterface> $categories */
+        $categories = Config::initClassMap($container, $categoryClassStrings);
+        return new BlockCategoriesRegistry(
+            $categories,
+            $config->bool('block_editor/add_at_top', false)
+        );
     }
 }

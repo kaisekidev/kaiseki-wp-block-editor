@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Kaiseki\WordPress\BlockEditor;
 
+use Kaiseki\WordPress\BlockEditor\BlockCategories\BlockCategoriesRegistry;
+
 final class ConfigProvider
 {
     /**
@@ -18,6 +20,7 @@ final class ConfigProvider
             'dependencies' => [
                 'aliases' => [],
                 'factories' => [
+                    BlockCategoriesRegistry::class => BlockCategories\BlockCategoriesRegistryFactory::class,
                     DisableBlockEditorForPostType::class => DisableBlockEditorForPostTypeFactory::class,
                     EnterTitleHere::class => FilterEnterTitleHereFactory::class,
                 ],
