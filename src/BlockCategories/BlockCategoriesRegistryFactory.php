@@ -11,14 +11,15 @@ final class BlockCategoriesRegistryFactory
 {
     public function __invoke(ContainerInterface $container): BlockCategoriesRegistry
     {
-        $config = Config::get($container);
+        $config = Config::fromContainer($container);
         /** @var list<class-string<BlockCategoryInterface>> $categoryClassStrings */
-        $categoryClassStrings = $config->array('block_editor/category_classes', []);
+        $categoryClassStrings = $config->array('block_editor.categories');
         /** @var list<BlockCategoryInterface> $categories */
         $categories = Config::initClassMap($container, $categoryClassStrings);
+
         return new BlockCategoriesRegistry(
             $categories,
-            $config->bool('block_editor/add_at_top', false)
+            $config->bool('block_editor.add_categories_at_top')
         );
     }
 }
