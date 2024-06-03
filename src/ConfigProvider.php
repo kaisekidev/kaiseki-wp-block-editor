@@ -8,6 +8,10 @@ use Kaiseki\WordPress\BlockEditor\BlockCategories\BlockCategoriesRegistry;
 use Kaiseki\WordPress\BlockEditor\BlockCategories\BlockCategoriesRegistryFactory;
 use Kaiseki\WordPress\BlockEditor\DisableBlockEditor\DisableBlockEditor;
 use Kaiseki\WordPress\BlockEditor\DisableBlockEditor\DisableBlockEditorFactory;
+use Kaiseki\WordPress\BlockEditor\EmbedVariations\DisableEmbedVariations;
+use Kaiseki\WordPress\BlockEditor\EmbedVariations\DisableEmbedVariationsFactory;
+use Kaiseki\WordPress\BlockEditor\EmbedVariations\EnableEmbedVariations;
+use Kaiseki\WordPress\BlockEditor\EmbedVariations\EnableEmbedVariationsFactory;
 use Kaiseki\WordPress\BlockEditor\EnterTitleHere\EnterTitleHereFilter;
 use Kaiseki\WordPress\BlockEditor\EnterTitleHere\EnterTitleHereFilterFactory;
 
@@ -20,13 +24,17 @@ final class ConfigProvider
     {
         return [
             'block_editor' => [
+                'add_categories_at_top' => false,
                 'categories' => [
                     // BlockCategoryInterface::class
                 ],
-                'add_categories_at_top' => false,
                 'disable_block_editor' => [
                     'post_types' => [],
                     'post_filter' => [],
+                ],
+                'embed_variations' => [
+                    'disable' => [],
+                    'enable' => [],
                 ],
                 'enter_title_here' => [],
             ],
@@ -38,6 +46,8 @@ final class ConfigProvider
                 'factories' => [
                     BlockCategoriesRegistry::class => BlockCategoriesRegistryFactory::class,
                     DisableBlockEditor::class => DisableBlockEditorFactory::class,
+                    DisableEmbedVariations::class => DisableEmbedVariationsFactory::class,
+                    EnableEmbedVariations::class => EnableEmbedVariationsFactory::class,
                     EnterTitleHereFilter::class => EnterTitleHereFilterFactory::class,
                 ],
             ],

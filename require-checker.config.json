@@ -3,7 +3,9 @@
         "null", "true", "false",
         "static", "self", "parent",
         "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
+        "add_action",
         "add_filter",
+        "wp_add_inline_script",
         "wp_list_pluck",
         "WP_Post"
     ],

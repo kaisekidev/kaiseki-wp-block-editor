@@ -30,6 +30,7 @@
   },
   "require": {
     "php": "^8.1",
+    "ext-json": "*",
     "kaiseki/config": "dev-master",
     "kaiseki/wp-hook": "dev-master",
     "psr/container": "^1.1 || ^2.0"
@@ -47,8 +48,7 @@
     "roave/security-advisories": "dev-latest",
     "roots/wordpress-core-installer": "*",
     "roots/wordpress-no-content": "@stable",
-    "szepeviktor/phpstan-wordpress": "^1.3",
-    "thecodingmachine/phpstan-safe-rule": "^1.2"
+    "szepeviktor/phpstan-wordpress": "^1.3"
   },
   "config": {
     "optimize-autoloader": true,
@@ -56,8 +56,7 @@
     "allow-plugins": {
       "phpstan/extension-installer": true,
       "roots/wordpress-core-installer": true,
-      "composer/installers": true,
-      "dealerdirect/phpcodesniffer-composer-installer": false
+      "composer/installers": true
     },
     "process-timeout": 0
   },
