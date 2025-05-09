@@ -6,6 +6,8 @@ namespace Kaiseki\WordPress\BlockEditor;
 
 use Kaiseki\WordPress\BlockEditor\BlockCategories\BlockCategoriesRegistry;
 use Kaiseki\WordPress\BlockEditor\BlockCategories\BlockCategoriesRegistryFactory;
+use Kaiseki\WordPress\BlockEditor\BlockTypes\UnregisterBlockTypes;
+use Kaiseki\WordPress\BlockEditor\BlockTypes\UnregisterBlockTypesFactory;
 use Kaiseki\WordPress\BlockEditor\DisableBlockEditor\DisableBlockEditor;
 use Kaiseki\WordPress\BlockEditor\DisableBlockEditor\DisableBlockEditorFactory;
 use Kaiseki\WordPress\BlockEditor\EmbedVariations\DisableEmbedVariations;
@@ -49,6 +51,7 @@ final class ConfigProvider
                     DisableEmbedVariations::class => DisableEmbedVariationsFactory::class,
                     EnableEmbedVariations::class => EnableEmbedVariationsFactory::class,
                     EnterTitleHereFilter::class => EnterTitleHereFilterFactory::class,
+                    UnregisterBlockTypes::class => UnregisterBlockTypesFactory::class,
                 ],
             ],
         ];
