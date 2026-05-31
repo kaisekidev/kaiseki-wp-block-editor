@@ -2,7 +2,7 @@
     "symbol-whitelist" : [
         "null", "true", "false",
         "static", "self", "parent",
-        "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object",
+        "array", "string", "int", "float", "bool", "iterable", "callable", "void", "object", "mixed",
         "add_action",
         "add_filter",
         "wp_add_inline_script",
